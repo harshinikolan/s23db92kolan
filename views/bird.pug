@@ -1,0 +1,25 @@
+extends layout
+block content
+  h1= title
+  p Search result bird
+  br
+  br
+  -
+    let results = [
+      { birdName: "Parrot", birdPrice: 1000, birdColor: "green"},
+      { birdName: "Sparrow",birdPrice:2000, birdColor: "brown" },
+      { birdName: "Duck", birdPrice: 400, birdColor: "white" },
+    ]
+  div.container-fluid
+    div.row
+      each item, index in results
+        div.col-sm-2(onclick=`buy(${index})`)
+          h4 birdName: #{item.birdName}
+          p birdPrice: $#{item.birdPrice}
+          p birdColor: #{item.birdColor}
+
+  script.
+    function buy(index) {
+      alert(`You purchased item ${index+1}.`);
+    }
+     

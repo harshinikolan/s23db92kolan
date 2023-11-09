@@ -5,14 +5,10 @@ block content
   br
   br
   -
-    let results = [
-      { birdName: "Parrot", birdPrice: 1000, birdColor: "green"},
-      { birdName: "Sparrow",birdPrice:2000, birdColor: "brown" },
-      { birdName: "Duck", birdPrice: 400, birdColor: "white" },
-    ]
+    let result = results
   div.container-fluid
     div.row
-      each item, index in results
+      each item, index in result
         div.col-sm-2(onclick=`buy(${index})`)
           h4 birdName: #{item.birdName}
           p birdPrice: $#{item.birdPrice}

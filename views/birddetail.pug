@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  - let birdid = toShow._id 
+  - let bird_name = toShow.birdName 
+  - let birdprice = toShow.birdPrice 
+  - let birdcolor = toShow.birdColor 
+  div
+    div.row
+      div(class='birdAttr mr-3') bird ID is:
+      div #{birdid}
+    div.row
+      div(class='birdAttr mr-3') bird Name is:
+      div #{bird_name}
+    div.row
+      div(class='birdAttr mr-3') bird Price is:
+      div #{birdprice}
+    div.row
+      div(class='birdAttr mr-3') bird Color is:
+      div #{birdcolor}

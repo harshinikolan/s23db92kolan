@@ -9,3 +9,10 @@ var router = express.Router();
 
 router.get('/', bird_controlers.bird_view_all_Page );
 module.exports = router;
+
+/* GET detail costume page */
+router.get('/detail', bird_controlers.bird_view_one_Page);
+
+// GET request for one costume.
+
+//=P'router.get('/birds/:id', costume_controller.costume_detail);

@@ -8,11 +8,23 @@ var router = express.Router();
 // });
 
 router.get('/', bird_controlers.bird_view_all_Page );
-module.exports = router;
+
 
 /* GET detail costume page */
 router.get('/detail', bird_controlers.bird_view_one_Page);
 
 // GET request for one costume.
 
-//=P'router.get('/birds/:id', costume_controller.costume_detail);
+router.get('/birds/:id', bird_controlers.bird_detail);
+
+/* GET create costume page */
+router.get('/create', bird_controlers.bird_create_Page);
+
+/* GET create update page */
+router.get('/update', bird_controlers.bird_update_Page);
+
+/* GET delete costume page */
+router.get('/delete', bird_controlers.bird_delete_Page);
+
+
+module.exports = router;

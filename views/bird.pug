@@ -1,21 +1,18 @@
 extends layout
+
 block content
   h1= title
   p Search result bird
-  br
-  br
-  -
-    let result = results
-  div.container-fluid
-    div.row
-      each item, index in result
-        div.col-sm-2(onclick=`buy(${index})`)
-          h4 birdName: #{item.birdName}
-          p birdPrice: $#{item.birdPrice}
-          p birdColor: #{item.birdColor}
+  - let items = results
+  
+  div(class="container-fluid")
+    div(class="row m-1")
+      each item in items
+        - let destination = `/bird/update?id=${item._id}`
+        div(class="row-sm-2", class="m-1") Item #{item.birdName}(#{item.birdPrice}) is #{item.birdColor}
+        button.btn(class="btn-primary ml-1", onclick=`dispatch('${destination}')`) Update
 
   script.
-    function buy(index) {
-      alert(`You purchased item ${index+1}.`);
+    function dispatch(path){
+      window.location.href = path;
     }
-     

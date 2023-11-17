@@ -7,37 +7,19 @@ block content
   - let birdprice = toShow.birdPrice
   - let birdcolor = toShow.birdColor
 
-  div.row(class='mb-2')
-    div.mr-1 ID is
+  div.row(style='margin-bottom: 20px;')
+    div.mr-1(style='margin-right: 5px;') ID is
     div #{birdid}
 
   - let actionid = "/resource/birds/" + birdid
-  form(id='birdForm', action= actionid, method="PUT")
-    div.form-group
-      label.birdAttr(for='birdName') birdname
-      input#birdName(type='text', name='birdname', value= bird_name )
-    div.form-group
-      label.birdAttr(for='birdPrice') birdprice
-      input#birdprice(type='number', name='birdprice', value= birdprice )
-    div.form-group
-      label.birdAttr(for='birdcolor') birdcolor
-      input#birdcolor(type='text', name='birdcolor', value= birdcolor )
-    input(type="submit")
-
-    script.
-      document.forms['birdForm'].addEventListener('submit', (event) => {
-        event.preventDefault();
-        // TODO do something here to show user that the form is being submitted
-        fetch(event.target.action, {
-          method: 'PUT',
-          body: new URLSearchParams(new FormData(event.target)) // event.target is the form
-        }).then((resp) => {
-          return resp.json(); // or resp.text() or whatever the server sends
-        }).then((body) => {
-          alert("Update succeeded");
-          // TODO handle body
-        }).catch((error) => {
-          // TODO handle error
-          alert("Update failed " + error );
-        });
-      });
+  form(id='birdForm', action= actionid, method="PUT", style='margin-top: 20px;')
+    div.form-group(style='margin-bottom: 10px;')
+      label.birdAttr(for='birdName', style='font-weight: bold;') birdname
+      input#birdName(type='text', name='birdname', value= bird_name, style='width: 100%; padding: 5px;' )
+    div.form-group(style='margin-bottom: 10px;')
+      label.birdAttr(for='birdPrice', style='font-weight: bold;') birdprice
+      input#birdprice(type='number', name='birdprice', value= birdprice, style='width: 100%; padding: 5px;')
+    div.form-group(style='margin-bottom: 10px;')
+      label.birdAttr(for='birdcolor', style='font-weight: bold;') birdcolor
+      input#birdcolor(type='text', name='birdcolor', value= birdcolor, style='width: 100%; padding: 5px;')
+    input(type="submit", style='padding: 8px 15px; background-color: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer;')
